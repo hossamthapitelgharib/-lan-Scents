@@ -1,26 +1,29 @@
 export default function CheckoutPage() {
   return (
-    <main className="page-shell inner-page">
-      <div className="breadcrumb">Home / Checkout</div>
-
-      <section className="checkout-layout">
-        <div className="checkout-box">
-          <h2>Shipping details</h2>
-          <form className="checkout-form">
-            <input placeholder="Full Name" />
-            <input placeholder="Phone Number" />
-            <input placeholder="Address" />
-            <input placeholder="City" />
-            <input placeholder="Country" />
-          </form>
+    <main className="page-shell">
+      <section className="section-block">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">Secure</p>
+            <h2>Checkout</h2>
+          </div>
+          <a href="/cart" className="inline-link">Back to cart</a>
         </div>
 
-        <aside className="summary-box">
-          <h3>Payment</h3>
-          <div className="summary-row"><span>Cash on delivery</span><strong>Selected</strong></div>
-          <div className="summary-row total"><span>Total</span><strong>AED 705</strong></div>
-          <button className="primary-btn wide">Confirm order</button>
-        </aside>
+        <div className="product-card">
+          <div className="product-info">
+            <div className="info-row">
+              <span className="brand-name">Order review</span>
+              <span className="store-name">Express</span>
+            </div>
+            <h3>Azzaro Wanted Girl</h3>
+            <p>Delivery fee: AED 25 · Total: AED 410</p>
+            <div className="price-row">
+              <strong>Payment: Cash on delivery</strong>
+              <a href="/my-orders" className="price-action-btn">Confirm</a>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );

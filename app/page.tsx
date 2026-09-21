@@ -1,100 +1,4 @@
-const navItems = [
-  'Home',
-  'Offers & Bundles',
-  'New Arrivals',
-  'Best Sellers',
-  'Élan Picks',
-  'Categories',
-  'Occasions',
-  'Brands',
-  'Stores',
-  'My Orders',
-];
-
-const topTicker = [
-  'Free delivery on orders over AED 250',
-  'Curated Gulf fragrances',
-  'Luxury scents, refined taste',
-  'New launches every week',
-];
-
-const products = [
-  {
-    id: 1,
-    name: 'Azzaro Wanted Girl',
-    brand: 'Azzaro',
-    store: 'Afnan Egypt',
-    price: 'AED 385',
-    tag: 'Best Seller',
-    image:
-      'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 2,
-    name: 'Maison Alhambra',
-    brand: 'Maison',
-    store: 'Emarati Scents',
-    price: 'AED 295',
-    tag: 'New',
-    image:
-      'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 3,
-    name: 'Lattafa Khamrah',
-    brand: 'Lattafa',
-    store: 'Afnan Egypt',
-    price: 'AED 415',
-    tag: 'Luxury',
-    image:
-      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 4,
-    name: 'Armaf Club de Nuit',
-    brand: 'Armaf',
-    store: 'Emarati Scents',
-    price: 'AED 420',
-    tag: 'Top Rated',
-    image:
-      'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=900&q=80',
-  },
-];
-
-const brands = [
-  { name: 'AMOUAGE', image: 'https://images.unsplash.com/photo-1528740561666-dc2479d462a6?auto=format&fit=crop&w=500&q=80' },
-  { name: 'LATTAFA', image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=500&q=80' },
-  { name: 'ARMAF', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=500&q=80' },
-  { name: 'AFNAN', image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=500&q=80' },
-  { name: 'RASASI', image: 'https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=500&q=80' },
-  { name: 'Maison Alhambra', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=500&q=80' },
-];
-
-const stores = [
-  { name: 'Afnan Egypt', city: 'Cairo', image: 'https://images.unsplash.com/photo-1528740561666-dc2479d462a6?auto=format&fit=crop&w=900&q=80' },
-  { name: 'Emarati Scents', city: 'Dubai', image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=900&q=80' },
-  { name: 'Élan Boutique', city: 'UAE', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80' },
-];
-
-const categories = [
-  { title: 'For Him', count: '120 scents', icon: 'M' },
-  { title: 'For Her', count: '118 scents', icon: 'F' },
-  { title: 'Luxury', count: '64 scents', icon: 'L' },
-  { title: 'Fresh', count: '90 scents', icon: 'R' },
-  { title: 'Oriental', count: '76 scents', icon: 'O' },
-  { title: 'Gift Sets', count: '40 sets', icon: 'G' },
-];
-
-const moments = [
-  'Evening',
-  'Wedding',
-  'Office',
-  'Anniversary',
-  'Summer',
-  'VIP Gift',
-  'Daily Wear',
-  'Luxury Night',
-];
+import { heroStats, topTicker, navItems, products, brands, stores, categories, moments, contactLinks } from '../data/mockData';
 
 export default function HomePage() {
   return (
@@ -109,8 +13,12 @@ export default function HomePage() {
 
       <header className="main-header">
         <div className="header-left">
-          <button className="icon-button" aria-label="Open menu">☰</button>
-          <button className="icon-button" aria-label="Search">⌕</button>
+          <button className="icon-button" aria-label="Open menu">
+            ☰
+          </button>
+          <a href="/products" className="icon-button" aria-label="Search" title="Search">
+            ⌕
+          </a>
         </div>
 
         <div className="brand-block">
@@ -121,15 +29,19 @@ export default function HomePage() {
         <div className="header-right">
           <button className="language-toggle">AR</button>
           <button className="language-toggle">EN</button>
-          <button className="icon-button" aria-label="Favorites">♡</button>
-          <button className="icon-button bag" aria-label="Shopping bag">👜</button>
+          <a href="/favorites" className="icon-button" aria-label="Favorites" title="Favorites">
+            ♡
+          </a>
+          <a href="/cart" className="icon-button bag" aria-label="Shopping bag" title="Cart">
+            👜
+          </a>
         </div>
       </header>
 
-      <nav className="nav-bar">
+      <nav className="nav-bar" aria-label="Main navigation">
         {navItems.map((item) => (
-          <a href="#" key={item} className="nav-item">
-            {item}
+          <a href={item.href} key={item.label} className="nav-item">
+            {item.label}
           </a>
         ))}
       </nav>
@@ -142,27 +54,25 @@ export default function HomePage() {
             Discover luxury Gulf scents crafted for a refined, modern lifestyle.
           </p>
           <div className="cta-row">
-            <a href="#" className="primary-btn">Shop Collection</a>
-            <a href="#" className="secondary-btn">Explore Brands</a>
+            <a href="/products" className="primary-btn">
+              Shop Collection
+            </a>
+            <a href="/brands" className="secondary-btn">
+              Explore Brands
+            </a>
           </div>
           <div className="stat-row">
-            <div>
-              <strong>350+</strong>
-              <span>Luxury scents</span>
-            </div>
-            <div>
-              <strong>24h</strong>
-              <span>Dispatch</span>
-            </div>
-            <div>
-              <strong>4.9</strong>
-              <span>Customer rating</span>
-            </div>
+            {heroStats.map((stat) => (
+              <div key={stat.label}>
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="hero-visual">
-          <div className="hero-card floating-card card-one" >
+          <div className="hero-card floating-card card-one">
             <span>Signature Collection</span>
             <strong>Amber Oud</strong>
           </div>
@@ -186,7 +96,9 @@ export default function HomePage() {
             <p className="eyebrow">Explore</p>
             <h2>Offers & Bundles</h2>
           </div>
-          <a href="#" className="inline-link">View all</a>
+          <a href="/products" className="inline-link">
+            View all
+          </a>
         </div>
 
         <div className="horizontal-scroll">
@@ -201,7 +113,9 @@ export default function HomePage() {
                 <p>{product.store}</p>
                 <div className="mini-meta">
                   <strong>{product.price}</strong>
-                  <button>+</button>
+                  <a href="/cart" className="mini-cart-btn" aria-label={`Add ${product.name} to cart`}>
+                    +
+                  </a>
                 </div>
               </div>
             </article>
@@ -215,7 +129,9 @@ export default function HomePage() {
             <p className="eyebrow">Fresh arrivals</p>
             <h2>Newly arrived</h2>
           </div>
-          <a href="#" className="inline-link">View all</a>
+          <a href="/products" className="inline-link">
+            View all
+          </a>
         </div>
 
         <div className="product-grid">
@@ -234,7 +150,9 @@ export default function HomePage() {
                 <p>Warm amber and velvety musk with a rich oriental finish.</p>
                 <div className="price-row">
                   <strong>{product.price}</strong>
-                  <button>Add to bag</button>
+                  <a href="/checkout" className="price-action-btn">
+                    Add to bag
+                  </a>
                 </div>
               </div>
             </article>
@@ -252,11 +170,11 @@ export default function HomePage() {
 
         <div className="category-grid">
           {categories.map((category) => (
-            <div key={category.title} className="category-card">
+            <a key={category.title} href="/products" className="category-card">
               <div className="category-icon">{category.icon}</div>
               <h3>{category.title}</h3>
               <span>{category.count}</span>
-            </div>
+            </a>
           ))}
         </div>
       </section>
@@ -271,7 +189,9 @@ export default function HomePage() {
 
         <div className="moment-row">
           {moments.map((moment) => (
-            <button className="moment-pill" key={moment}>{moment}</button>
+            <button className="moment-pill" key={moment} type="button">
+              {moment}
+            </button>
           ))}
         </div>
       </section>
@@ -282,17 +202,19 @@ export default function HomePage() {
             <p className="eyebrow">Premium brands</p>
             <h2>Élan Scents favourites</h2>
           </div>
-          <a href="#" className="inline-link">View all brands</a>
+          <a href="/brands" className="inline-link">
+            View all brands
+          </a>
         </div>
 
         <div className="brand-grid">
           {brands.map((brand) => (
-            <article key={brand.name} className="brand-card">
+            <a key={brand.name} href="/brands" className="brand-card">
               <img src={brand.image} alt={brand.name} />
               <div className="brand-overlay">
                 <span>{brand.name}</span>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -307,13 +229,13 @@ export default function HomePage() {
 
         <div className="store-grid">
           {stores.map((store) => (
-            <article key={store.name} className="store-card">
+            <a key={store.name} href="/stores" className="store-card">
               <img src={store.image} alt={store.name} />
               <div className="store-info">
                 <h3>{store.name}</h3>
                 <span>{store.city}</span>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -325,11 +247,16 @@ export default function HomePage() {
           <p>
             Élan Scents brings together the elegance of European design with the richness of Gulf perfumery. We curate premium scents that feel modern, intimate, and unforgettable.
           </p>
-          <a href="#" className="primary-btn">Learn more</a>
+          <a href="/about" className="primary-btn">
+            Learn more
+          </a>
         </div>
 
         <div className="about-image">
-          <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80" alt="Luxury perfume concept" />
+          <img
+            src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80"
+            alt="Luxury perfume concept"
+          />
         </div>
       </section>
 
@@ -340,10 +267,11 @@ export default function HomePage() {
             <h2>Contact Élan Scents</h2>
           </div>
           <div className="contact-links">
-            <span>Instagram</span>
-            <span>Facebook</span>
-            <span>WhatsApp</span>
-            <span>hello@elanscents.com</span>
+            {contactLinks.map((link) => (
+              <a key={link.label} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined}>
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -357,21 +285,21 @@ export default function HomePage() {
         <div className="footer-links">
           <div>
             <h4>Shop</h4>
-            <a href="#">Offers</a>
-            <a href="#">New Arrivals</a>
-            <a href="#">Best Sellers</a>
+            <a href="/products">Offers</a>
+            <a href="/products">New Arrivals</a>
+            <a href="/products">Best Sellers</a>
           </div>
           <div>
             <h4>Brands</h4>
-            <a href="#">AMOUAGE</a>
-            <a href="#">Lattafa</a>
-            <a href="#">Armaf</a>
+            <a href="/brands">AMOUAGE</a>
+            <a href="/brands">Lattafa</a>
+            <a href="/brands">Armaf</a>
           </div>
           <div>
             <h4>Support</h4>
-            <a href="#">Contact</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms</a>
+            <a href="/contact">Contact</a>
+            <a href="/about">Privacy Policy</a>
+            <a href="/about">Terms</a>
           </div>
         </div>
       </footer>

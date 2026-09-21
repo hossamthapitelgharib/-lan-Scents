@@ -1,84 +1,51 @@
-const products = [
-  {
-    id: 1,
-    slug: 'azzaro-wanted-girl',
-    name: 'Azzaro Wanted Girl',
-    brand: 'Azzaro',
-    category: 'Floral Oriental',
-    price: 'AED 385',
-    store: 'Afnan Egypt',
-    image:
-      'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 2,
-    slug: 'lattafa-khamrah',
-    name: 'Lattafa Khamrah',
-    brand: 'Lattafa',
-    category: 'Warm Spicy',
-    price: 'AED 415',
-    store: 'Emarati Scents',
-    image:
-      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 3,
-    slug: 'maison-alhambra',
-    name: 'Maison Alhambra',
-    brand: 'Maison',
-    category: 'Amber Vanilla',
-    price: 'AED 295',
-    store: 'Élan Boutique',
-    image:
-      'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 4,
-    slug: 'club-de-nuit',
-    name: 'Armaf Club de Nuit',
-    brand: 'Armaf',
-    category: 'Woody Fresh',
-    price: 'AED 420',
-    store: 'Emarati Scents',
-    image:
-      'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=900&q=80',
-  },
-];
-
 export default function ProductsPage() {
   return (
-    <main className="page-shell inner-page">
-      <div className="breadcrumb">Home / Products</div>
-
+    <main className="page-shell">
       <section className="section-block">
         <div className="section-head">
           <div>
-            <p className="eyebrow">Browse all</p>
-            <h2>Luxury fragrances</h2>
+            <p className="eyebrow">Browse</p>
+            <h2>All fragrances</h2>
           </div>
+          <a href="/" className="inline-link">Back home</a>
         </div>
 
         <div className="product-grid">
-          {products.map((product) => (
-            <article key={product.id} className="product-card">
-              <div className="product-image-wrap">
-                <img src={product.image} alt={product.name} />
-                <span className="product-tag">New</span>
+          <div className="product-card">
+            <div className="product-image-wrap">
+              <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80" alt="Offer product" />
+            </div>
+            <div className="product-info">
+              <div className="info-row">
+                <span className="brand-name">Azzaro</span>
+                <span className="store-name">Afnan Egypt</span>
               </div>
-              <div className="product-info">
-                <div className="info-row">
-                  <span className="brand-name">{product.brand}</span>
-                  <span className="store-name">{product.store}</span>
-                </div>
-                <h3>{product.name}</h3>
-                <p>{product.category}</p>
-                <div className="price-row">
-                  <strong>{product.price}</strong>
-                  <button>Add to bag</button>
-                </div>
+              <h3>Azzaro Wanted Girl</h3>
+              <p>Luxury oriental floral with soft amber notes.</p>
+              <div className="price-row">
+                <strong>AED 385</strong>
+                <a href="/checkout" className="price-action-btn">Add to bag</a>
               </div>
-            </article>
-          ))}
+            </div>
+          </div>
+
+          <div className="product-card">
+            <div className="product-image-wrap">
+              <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=80" alt="Product 2" />
+            </div>
+            <div className="product-info">
+              <div className="info-row">
+                <span className="brand-name">Lattafa</span>
+                <span className="store-name">Afnan Egypt</span>
+              </div>
+              <h3>Lattafa Khamrah</h3>
+              <p>Warm woody scent with a refined spicy finish.</p>
+              <div className="price-row">
+                <strong>AED 415</strong>
+                <a href="/checkout" className="price-action-btn">Add to bag</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

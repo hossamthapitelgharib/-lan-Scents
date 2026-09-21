@@ -1,71 +1,40 @@
-const stats = [
-  { label: 'Total Revenue', value: 'AED 76,340' },
-  { label: 'Orders', value: '1,284' },
-  { label: 'Active Stores', value: '12' },
-  { label: 'New Signups', value: '92' },
-];
-
-const recentOrders = [
-  { id: '#1042', customer: 'Noura A.', total: 'AED 420', status: 'Paid' },
-  { id: '#1043', customer: 'Faisal K.', total: 'AED 615', status: 'Processing' },
-  { id: '#1044', customer: 'Huda M.', total: 'AED 275', status: 'Shipped' },
-  { id: '#1045', customer: 'Sami A.', total: 'AED 390', status: 'Pending' },
-];
-
-export default function AdminDashboardPage() {
+export default function AdminPage() {
   return (
-    <main className="page-shell inner-page">
-      <div className="breadcrumb">Admin / Dashboard</div>
-
+    <main className="page-shell">
       <section className="section-block">
         <div className="section-head">
           <div>
-            <p className="eyebrow">Overview</p>
-            <h2>Dashboard</h2>
+            <p className="eyebrow">Operations</p>
+            <h2>Admin dashboard</h2>
           </div>
+          <a href="/" className="inline-link">Back home</a>
         </div>
 
-        <div className="stats-grid">
-          {stats.map((stat) => (
-            <div key={stat.label} className="stat-card">
-              <span>{stat.label}</span>
-              <strong>{stat.value}</strong>
+        <div className="product-grid">
+          <div className="product-card">
+            <div className="product-info">
+              <h3>Products</h3>
+              <p>Manage catalog items, stock, and pricing.</p>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-block">
-        <div className="section-head">
-          <div>
-            <p className="eyebrow">Activity</p>
-            <h2>Recent orders</h2>
           </div>
-        </div>
-
-        <div className="table-card">
-          <table>
-            <thead>
-              <tr>
-                <th>Order</th>
-                <th>Customer</th>
-                <th>Total</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recentOrders.map((order) => (
-                <tr key={order.id}>
-                  <td>{order.id}</td>
-                  <td>{order.customer}</td>
-                  <td>{order.total}</td>
-                  <td>
-                    <span className="status-badge">{order.status}</span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="product-card">
+            <div className="product-info">
+              <h3>Stores</h3>
+              <p>Monitor sellers, commissions, and offers.</p>
+            </div>
+          </div>
+          <div className="product-card">
+            <div className="product-info">
+              <h3>Orders</h3>
+              <p>Review customer orders and fulfillment status.</p>
+            </div>
+          </div>
+          <div className="product-card">
+            <div className="product-info">
+              <h3>Marketplace</h3>
+              <p>Track selected offer logic and sync sources.</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>

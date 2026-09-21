@@ -1,34 +1,29 @@
-const items = [
-  { name: 'Azzaro Wanted Girl', qty: 1, price: 'AED 385' },
-  { name: 'Maison Alhambra', qty: 1, price: 'AED 295' },
-];
-
 export default function CartPage() {
   return (
-    <main className="page-shell inner-page">
-      <div className="breadcrumb">Home / Cart</div>
-
-      <section className="section-block cart-layout">
-        <div className="cart-items">
-          {items.map((item) => (
-            <div key={item.name} className="cart-item">
-              <div className="cart-thumb" />
-              <div className="cart-copy">
-                <h3>{item.name}</h3>
-                <p>Qty: {item.qty}</p>
-              </div>
-              <strong>{item.price}</strong>
-            </div>
-          ))}
+    <main className="page-shell">
+      <section className="section-block">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">Bag</p>
+            <h2>Shopping cart</h2>
+          </div>
+          <a href="/" className="inline-link">Continue shopping</a>
         </div>
 
-        <aside className="summary-box">
-          <h3>Order Summary</h3>
-          <div className="summary-row"><span>Subtotal</span><strong>AED 680</strong></div>
-          <div className="summary-row"><span>Shipping</span><strong>AED 25</strong></div>
-          <div className="summary-row total"><span>Total</span><strong>AED 705</strong></div>
-          <button className="primary-btn wide">Proceed to checkout</button>
-        </aside>
+        <div className="product-card">
+          <div className="product-info">
+            <div className="info-row">
+              <span className="brand-name">Azzaro</span>
+              <span className="store-name">Afnan Egypt</span>
+            </div>
+            <h3>Azzaro Wanted Girl</h3>
+            <p>1 item · AED 385</p>
+            <div className="price-row">
+              <strong>Total: AED 385</strong>
+              <a href="/checkout" className="price-action-btn">Checkout</a>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );
