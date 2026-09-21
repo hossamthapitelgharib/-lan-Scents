@@ -105,7 +105,9 @@ export default function HomePage() {
           {products.map((product) => (
             <article key={product.id} className="mini-product-card">
               <div className="mini-image-wrap">
-                <img src={product.image} alt={product.name} />
+                <a href={`/products/${product.id}`}>
+                  <img src={product.image} alt={product.name} />
+                </a>
               </div>
               <div className="mini-body">
                 <span className="tag">{product.tag}</span>
@@ -113,7 +115,7 @@ export default function HomePage() {
                 <p>{product.store}</p>
                 <div className="mini-meta">
                   <strong>{product.price}</strong>
-                  <a href="/cart" className="mini-cart-btn" aria-label={`Add ${product.name} to cart`}>
+                  <a href={`/products/${product.id}`} className="mini-cart-btn" aria-label={`View ${product.name}`}>
                     +
                   </a>
                 </div>
@@ -138,7 +140,9 @@ export default function HomePage() {
           {products.map((product) => (
             <article key={product.id} className="product-card">
               <div className="product-image-wrap">
-                <img src={product.image} alt={product.name} />
+                <a href={`/products/${product.id}`}>
+                  <img src={product.image} alt={product.name} />
+                </a>
                 <span className="product-tag">{product.tag}</span>
               </div>
               <div className="product-info">
@@ -150,7 +154,7 @@ export default function HomePage() {
                 <p>Warm amber and velvety musk with a rich oriental finish.</p>
                 <div className="price-row">
                   <strong>{product.price}</strong>
-                  <a href="/checkout" className="price-action-btn">
+                  <a href={`/products/${product.id}`} className="price-action-btn">
                     Add to bag
                   </a>
                 </div>
